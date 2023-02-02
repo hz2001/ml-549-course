@@ -29,8 +29,8 @@ if __name__ == '__main__':
     # put your BU username in the `group=` parameter
     wandb.init(
         project="hw1_spring2023",  # Leave this as 'hw1_spring2023'
-        entity="bu-spark-ml",  # Leave this
-        group="<your_BU_username>",  # <<<<<<< Put your BU username here
+        entity="hzjhcs549",  # Leave this
+        group="U82392079",  # <<<<<<< Put your BU username here
         notes="Minimal model"  # <<<<<<< You can put a short note here
     )
 
@@ -49,16 +49,16 @@ if __name__ == '__main__':
     (ds_cifar10_train, ds_cifar10_test), ds_cifar10_info = tfds.load(
         'cifar10',
         split=['train', 'test'],
-        data_dir='/projectnb/ds549/datasets/tensorflow_datasets',
+        data_dir='/datasets',
         shuffle_files=True, # load in random order
         as_supervised=True, # Include labels
         with_info=True, # Include info
     )
 
     # Optionally uncomment the next 3 lines to visualize random samples from each dataset
-    #fig_train = tfds.show_examples(ds_cifar10_train, ds_cifar10_info)
-    #fig_test = tfds.show_examples(ds_cifar10_test, ds_cifar10_info)
-    #plt.show()  # Display the plots
+    fig_train = tfds.show_examples(ds_cifar10_train, ds_cifar10_info)
+    fig_test = tfds.show_examples(ds_cifar10_test, ds_cifar10_info)
+    plt.show()  # Display the plots
 
     def normalize_img(image, label):
         """Normalizes images: `uint8` -> `float32`."""
@@ -98,8 +98,8 @@ if __name__ == '__main__':
         # vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
         "learning_rate": 0.001,
         "optimizer": "adam",
-        "epochs": 5,
-        "batch_size": 32
+        "epochs": 100,
+        "batch_size": 128
         # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     }
 
